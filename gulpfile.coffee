@@ -7,6 +7,10 @@ glob = require('glob')
 streamConvert = require('vinyl-source-stream')
 buffer = require('vinyl-buffer')
 rename = require("gulp-rename")
+lr = require('tiny-lr')
+lrserver = lr();
+http = require('http')
+ecstatic = require('ecstatic')
 
 gulp.task 'coffee', () ->
   gulp.src('./src/*.coffee')
@@ -39,6 +43,17 @@ gulp.task 'standalone', () ->
     .pipe(rename("offlinemap.min.js"))
     .pipe(uglify())
     .pipe(gulp.dest('./dist/'))
+
+livereloadport = 35729
+serverport = 5001;
+
+gulp.task 'serve', () ->
+  #Set up your static fileserver, which serves files in the build dir
+  http.createServer(ecstatic({ root: __dirname + '/demo' })).listen(serverport);
+  #Set up your livereload server
+  lrserver.listen(livereloadport)
+
+
 
 gulp.task 'build', ['coffee', 'demo', 'standalone']
 gulp.task 'default', ['build']

@@ -32,6 +32,8 @@
   },
   "dependencies": {
     "async": "^0.9.0",
-    "idb-wrapper": "^1.4.1"
+    "ecstatic": "^2.1.0",
+    "idb-wrapper": "^1.4.1",
+    "tiny-lr": "^1.0.3"
   }
 }
