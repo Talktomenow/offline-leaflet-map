@@ -2,8 +2,8 @@ ImageStore = require('./ImageStore')
 OfflineLayer = require('./OfflineLayer')
 OfflineProgressControl = require('./OfflineProgressControl')
 
-mapquestUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png'
-subDomains = ['otile1','otile2','otile3','otile4']
+mapquestUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+subDomains = ['a', 'b', 'c']#['otile1','otile2','otile3','otile4']
 mapquestAttrib = 'Data, imagery and map information provided by <a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors.'
 
 # An example of control that can be used for saving tiles
@@ -105,7 +105,7 @@ class CacheBtnControl extends L.Control
     @cacheButton.removeAttribute('disabled')
     @clearButton.removeAttribute('disabled')
 
-aMap = L.map('map').setView([-2.9, -79], 13)
+aMap = L.map('map').setView([ -33.92, 151.25], 13)
 
 onReady = () ->
   console.log("The OfflineLayer is ready to be used")
