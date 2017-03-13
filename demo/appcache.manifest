@@ -1,0 +1,11 @@
+CACHE MANIFEST
+
+NETWORK:
+*
+
+CACHE:
+index.html
+leaflet.css
+leaflet.js
+bundle.js
+
